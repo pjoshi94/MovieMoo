@@ -1,3 +1,10 @@
+
+**Make sure you have flask installed and use**
+    
+    flask --app movie run --debug
+
+**to run the app**
+
 Welcome to Movie Moo, a webstie for people struggling to find a movie to watch to cure their boredom. This app was created following the Model View Template architecture, with a flask backend and HTML/CSS frontend.
 
 When you first open the website, you will be greeted with a welcome page where the user can select to login to their account or register a new one
@@ -22,6 +29,3 @@ Lastly, on the left side of every page, you will see a set of navigative symbols
 
 That's it for this app! Hope you enjoy!
 
-**Make sure you have flask installed and use 
-    _flask --app movie run --debug_
-to run the app**
