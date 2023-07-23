@@ -1,7 +1,7 @@
 
 **Make sure you have flask installed and use**
     
-    flask --app movie run --debug
+    flask --app movie run
 
 **to run the app**
 
