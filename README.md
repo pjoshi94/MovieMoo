@@ -21,3 +21,7 @@ Lastly, on the left side of every page, you will see a set of navigative symbols
 4) The exit symbol will allow you to logout
 
 That's it for this app! Hope you enjoy!
+
+**Make sure you have flask installed and use 
+    _flask --app movie run --debug_
+to run the app**
