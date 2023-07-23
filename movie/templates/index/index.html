@@ -1,0 +1,25 @@
+<!doctype html>
+<title> MovieMoo</title>
+<link rel="stylesheet" href="/static/index.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<body>
+  <div class="text">
+    <div class="title">
+      <h1>MovieMoo</h1>
+    </div>
+    <div class="subtitle">
+      <h2>Welcome to this movie finder! To find new exciting movies, please register or login!</h2>
+    </div>
+  </div>
+  <div class="buttons">
+    <a href="{{ url_for('auth.register') }}"><button class="btn">Register</button></a>
+    <a href="{{ url_for('auth.login') }}"><button class="btn">Log In</button></a>
+  </div>
+  <div class="img-wrapper">
+    <img class="image"
+      src="https://m.media-amazon.com/images/M/MV5BNWU2ODI1MTQtMDY1NS00ZjNkLWIxZjAtYmE2ZmJkYmIyNjRjXkEyXkFqcGdeQXVyNzk1MzI3MTI@._V1_.jpg">
+    <img class="image" src="https://demonslayer-anime.com/assets_portal/img/main/img_katanakaji4.jpg">
+  </div>
+</body>

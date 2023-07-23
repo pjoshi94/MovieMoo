@@ -1,0 +1,112 @@
+<!doctype html>
+
+<head>
+    <link rel="stylesheet" href="/static/display.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Find my Movie</title>
+</head>
+
+<body>
+
+
+    <div class="nav-bar">
+
+        <div class="menu-icon">
+
+            <i class='bx bx-menu'></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <div class="search-icon">
+                    <a href="{{ url_for('index.starter') }}">
+                        <i class='bx bx-search-alt-2'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="wishlist-icon">
+                    <a href="{{ url_for('index.displayWishlist') }}">
+                        <i class='bx bx-cart'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="watched-icon">
+                    <a href="{{url_for('index.showWatchedMovies')}}">
+                        <i class='bx bxs-castle'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="logout-icon">
+                    <a href="{{ url_for('auth.logout') }}">
+                        <i class='bx bx-log-out'></i>
+                    </a>
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <div class="text">
+        <h1>MovieMoo</h1>
+    </div>
+
+    <div class="page">
+        <section class="form">
+            <form method="post">
+                <h3>Movie Search</h3>
+                <label for="genre">Genre</label>
+                <select name="options" id="options" required>
+                    <option value="action">Action</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="horror">Horror</option>
+                    <option value="romance">Romance</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="documentary">Documentary</option>
+                </select>
+
+                <label for="date">Date Released</label>
+                <select name="date" id="date" required>
+                    <option value="1970s">1970s</option>
+                    <option value="1980s">1980s</option>
+                    <option value="1990s">1990s</option>
+                    <option value="2000s">2000s</option>
+                    <option value="2010s">2010s</option>
+                    <option value="2020s">2020s</option>
+                </select>
+
+                <label for="language">Language</label>
+                <select name="language" id="language" required>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="French">French</option>
+                    <option value="Russian">Russian</option>
+                </select>
+
+                <input class="btn" method="POST" type="submit" value="Find my movie">
+            </form>
+        </section>
+        <section class="response">
+            <img class="img" src="https://image.tmdb.org/t/p/original/{{movieData['poster_path']}}" height="100"
+                width="100">
+
+            <div class="Name">
+                <h5 class="movieName">{{movieData['original_title']}}</h5>
+            </div>
+        </section>
+        <div class="learn-more">
+            <a href="{{ url_for('index.learn') }}"><button class="btn-learn">Learn
+                    more about the movie</button></a>
+        </div>
+        <a href="{{ url_for('index.addToWishlist') }}"><button class="btn-add">Add to wishlist</button></a>
+        <a href="{{ url_for('index.addToWatched') }}"><button class="btn-watched">Mark as Watched</button></a>
+    </div>
+</body>

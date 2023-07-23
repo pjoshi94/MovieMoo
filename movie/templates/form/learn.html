@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="/static/learn.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Movie Information</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <div class="menu-icon">
+            <i class='bx bx-menu'></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <div class="search-icon">
+                    <a href="{{ url_for('index.starter') }}">
+                        <i class='bx bx-search-alt-2'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="wishlist-icon">
+                    <a href="{{ url_for('index.displayWishlist') }}">
+                        <i class='bx bx-cart'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="watched-icon">
+                    <a href="{{url_for('index.showWatchedMovies')}}">
+                        <i class='bx bxs-castle'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="logout-icon">
+                    <a href="{{ url_for('auth.logout') }}">
+                        <i class='bx bx-log-out'></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <img class="img" src="https://image.tmdb.org/t/p/original/{{movieData['poster_path']}}" height="100" width="100">
+    <div class="text">
+        <h1>{{movieData['original_title']}}</h1>
+
+        {% if movieData['release_data'] %}
+        <h2>Release Date: {{movieData['release_data']}}</h2>
+        {% endif %}
+
+        <h3>TMDB Ratings: {{movieData['vote_average']}}/10</h3>
+        <p>{{movieData['overview']}}</p>
+    </div>
+    <a href="{{ url_for('index.addToWishlist') }}"><button class="btn-add">Add to wishlist</button></a>
+</body>

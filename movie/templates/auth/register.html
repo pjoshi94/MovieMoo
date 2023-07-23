@@ -1,0 +1,40 @@
+!doctype html>
+<link rel="stylesheet" href="/static/auth.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<head>
+  <title>MovieMoo</title>
+</head>
+
+<body>
+  <div class="text">
+    <div class="title">
+      <h1>MovieMoo</h1>
+    </div>
+  </div>
+  <section class="form">
+    <form method="post">
+      <h3>Register</h3>
+
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required>
+
+      <input class="btn" type="submit" value="Register">
+    </form>
+    <div class="reg">
+      <p class="txt"> Already have an account?</p>
+      <a href="{{ url_for('auth.login') }}"><button class="btn-register">Log In</button></a>
+    </div>
+  </section>
+
+  <section class="content">
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+  </section>
+</body>

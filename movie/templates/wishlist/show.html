@@ -1,0 +1,75 @@
+<!doctype html>
+
+<head>
+
+    <link rel="stylesheet" href="/static/wishlist.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>My Watchlist</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+
+        <div class="menu-icon">
+
+            <i class='bx bx-menu'></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <div class="search-icon">
+                    <a href="{{ url_for('index.starter') }}">
+                        <i class='bx bx-search-alt-2'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="wishlist-icon">
+                    <a href="{{ url_for('index.displayWishlist') }}">
+                        <i class='bx bx-cart'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="watched-icon">
+                    <a href="{{url_for('index.showWatchedMovies')}}">
+                        <i class='bx bxs-castle'></i>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="logout-icon">
+                    <a href="{{ url_for('auth.logout') }}">
+                        <i class='bx bx-log-out'></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h1 class="title">Your Wishlist</h1>
+
+    {% if content %}
+    <div class="content">
+        {% for c in content %}
+        <div class="indiv">
+            <p class="text">{{c['movietitle']}}</p>
+            <img class="img" src="https://image.tmdb.org/t/p/original/{{c['posterPath']}}" height="100" width="100">
+            <div class="buttons">
+                <a href="{{ url_for('index.delete', id=c['id']) }}"><button class="btn-delete">Delete</button></a>
+                <a href="{{ url_for('index.learnmore', id=c['id']) }}"><button class="btn-learn">Learn
+                        more</button></a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text">You have no movies in your watchlist!</p>
+    {% endif %}
+
+</body>
